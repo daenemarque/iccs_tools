@@ -7,6 +7,8 @@ fast_mplus_output <- function(model, inpfile) {
   mplus_output_list <- list(input = inpfile, 
                             fits = results$results$summaries[c("CFI_Mean","RMSEA_Mean", "SRMR_Mean")],
                             sdtyx = results$results$parameters$stdyx.standardized,
+                            indirect_overall = results$results$indirect$stdyx.standardized$overall,
+                            indirect_specific = results$results$indirect$stdyx.standardized$specific,
                             R2 = results$results$parameters$r2)
   return(mplus_output_list)
 }
